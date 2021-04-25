@@ -1,0 +1,27 @@
+
+language: php
+
+
+php:
+  - 7.2
+  - 7.3.24
+  - 7.4.0
+env:
+  global:
+    - XDEBUG_MODE=coverage
+
+install:
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev --no-interaction
+
+script:
+  - php vendor/bin/phpcs
+  - php vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
+
+after_success:
+  # Submit coverage report to https://codecov.io
+  - bash <(curl -s https://codecov.io/bash)
+
+cache:
+  directories:
+    - $HOME/.composer/cache

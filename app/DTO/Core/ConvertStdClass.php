@@ -3,7 +3,6 @@
 
 namespace App\DTO\Core;
 
-
 use InvalidArgumentException;
 
 class ConvertStdClass
@@ -15,31 +14,32 @@ class ConvertStdClass
      * @param \stdClass $object
      * @return mixed
      */
-    public static function recast($className, \stdClass  &$object)
+    public static function recast($className, \stdClass &$object)
     {
 
-        if (!class_exists($className))
+        if (!class_exists($className)) {
             throw new InvalidArgumentException("Inexistant class  $className");
+        }
 
         $new = new $className();
 
-        foreach($object as $property => &$value)
-        {
+        foreach ($object as $property => &$value) {
             $new->$property = &$value;
             unset($object->$property);
         }
         unset($value);
         return $new;
-
     }
 
 
-    public static function recastArray($className,array $array)
+    public static function recastArray($className, array $array)
     {
-        if (!class_exists($className))
-            throw new InvalidArgumentException("Inexistant class  $className");
 
-        foreach($array as $key => $object) {
+        if (!class_exists($className)) {
+            throw new InvalidArgumentException("Inexistant class  $className");
+        }
+
+        foreach ($array as $key => $object) {
             $new = new $className();
             foreach ($object as $property => &$value) {
                 $new->$property = &$value;
@@ -47,9 +47,7 @@ class ConvertStdClass
             }
             $array[$key] = $new;
             unset($value);
-
         }
         return $array;
     }
-
 }

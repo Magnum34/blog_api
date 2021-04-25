@@ -44,6 +44,4 @@ class Post extends Entity
      *
      */
     public string $body;
-
-
 }

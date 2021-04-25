@@ -4,7 +4,8 @@ namespace App\Services;
 
 use App\DTO\Post;
 
-interface HandlerInterface {
+interface HandlerInterface
+{
 
     /**
      * @param int $postId
@@ -16,5 +17,4 @@ interface HandlerInterface {
      * @return array
      */
     public function getAllPosts(): array;
-
 }
