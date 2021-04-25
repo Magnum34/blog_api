@@ -12,9 +12,13 @@ install:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --no-interaction
 
+before_script:
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --prefer-source --dev
+
 script:
   - php vendor/bin/phpcs
-  - php vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
+  - php vendor/bin/phpunit --coverage-clover coverage.xml
 
 after_success:
   # Submit coverage report to https://codecov.io
