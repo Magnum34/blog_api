@@ -17,6 +17,11 @@ class PostAPIService implements HandlerInterface
     private Client $client;
 
     /**
+     * @var array
+     */
+    private array $options;
+
+    /**
      * @var string|\Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
      */
     private string $url;
@@ -30,6 +35,11 @@ class PostAPIService implements HandlerInterface
             'cache-control' => 'no-cache',
             'content-type' => 'application/json'
         ]);
+        $this->options = [
+            'timeout' => 30,
+            'connect_timeout' => true,
+            'http_errors' => true
+        ];
         $this->url = config('api.url');
     }
 
@@ -41,11 +51,7 @@ class PostAPIService implements HandlerInterface
     public function getPost(int $postId): Post
     {
         try {
-            $request = $this->client->get($this->url . '/posts/' . $postId, [
-                'timeout' => 30,
-                'connect_timeout' => true,
-                'http_errors' => true
-            ]);
+            $request = $this->client->get($this->url . '/posts/' . $postId, $this->options);
             if (!$request->getStatusCode() == 200) {
                 throw new ServerException('No Connection API!');
             }
@@ -73,11 +79,7 @@ class PostAPIService implements HandlerInterface
     public function getAllPosts(): array
     {
         try {
-            $request = $this->client->get($this->url . '/posts', [
-                'timeout' => 30,
-                'connect_timeout' => true,
-                'http_errors' => true
-            ]);
+            $request = $this->client->get($this->url . '/posts', $this->options);
             if (!$request->getStatusCode() == 200) {
                 throw new ServerException('No Connection API!');
             }
