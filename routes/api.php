@@ -13,8 +13,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::resource('posts', '\App\Http\Controllers\PostController');
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('posts', '\App\Http\Controllers\PostController')->except(['store','edit','create','update','destroy']);
