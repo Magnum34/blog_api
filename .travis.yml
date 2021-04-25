@@ -4,9 +4,6 @@ language: php
 
 php:
   - 7.4.0
-env:
-  global:
-    - XDEBUG_MODE=coverage
 
 install:
   - curl -s http://getcomposer.org/installer | php
