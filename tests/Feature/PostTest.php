@@ -3,7 +3,6 @@
 
 namespace Tests\Feature;
 
-
 use Tests\TestCase;
 
 class PostTest extends TestCase
@@ -26,5 +25,4 @@ class PostTest extends TestCase
                 "body"
             ]);
     }
-
 }
