@@ -31,7 +31,11 @@ class ConvertStdClass
         return $new;
     }
 
-
+    /**
+     * @param $className
+     * @param array $array
+     * @return array
+     */
     public static function recastArray($className, array $array)
     {
 

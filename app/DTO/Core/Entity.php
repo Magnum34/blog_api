@@ -12,6 +12,10 @@ class Entity
      */
     protected $fillable = [];
 
+    /**
+     * Entity constructor.
+     * @param array $attributes
+     */
     public function __construct(array $attributes = [])
     {
         foreach ($attributes as $key => $value) {
@@ -21,6 +25,12 @@ class Entity
         }
     }
 
+    /**
+     * @param $key
+     * @param $params
+     * @return mixed
+     * @throws \Exception
+     */
     public function __call($key, $params)
     {
         if (!isset($this->{$key})) {
@@ -30,6 +40,9 @@ class Entity
         return $this->{$key}->__invoke(... $params);
     }
 
+    /**
+     * @return false|string
+     */
     public function toJson()
     {
         $object = [];

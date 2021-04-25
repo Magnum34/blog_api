@@ -12,10 +12,19 @@ use JMS\Serializer\SerializerBuilder;
 
 class PostAPIService implements HandlerInterface
 {
+    /**
+     * @var Client
+     */
     private Client $client;
 
+    /**
+     * @var string|\Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     private string $url;
 
+    /**
+     * PostAPIService constructor.
+     */
     public function __construct()
     {
         $this->client = new Client([
@@ -25,7 +34,11 @@ class PostAPIService implements HandlerInterface
         $this->url = config('api.url');
     }
 
-
+    /**
+     * @param int $postId
+     * @return Post
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getPost(int $postId): Post
     {
         try {
@@ -54,6 +67,10 @@ class PostAPIService implements HandlerInterface
         }
     }
 
+    /**
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getAllPosts(): array
     {
         try {

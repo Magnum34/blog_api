@@ -4,6 +4,20 @@
 [![codecov](https://codecov.io/gh/Magnum34/blog_api/branch/master/graph/badge.svg)](https://codecov.io/gh/Magnum34/blog_api)
 
 
+## Endpoints
+
+```
+
+/api/posts
+
+/api/posts/:id
+
+```
+## TODO
+1. More unit tests.
+2. Docs Thumbnail So API .
+
+
 ## Requirements
 * PHP >= 7.4
 
