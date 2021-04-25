@@ -1,7 +1,7 @@
 # Blog API
 
-[![Build Status](https://travis-ci.com/Magnum34/blogs_api.svg?branch=main)](https://travis-ci.com/Magnum34/blogs_api)
-[![codecov](https://codecov.io/gh/Magnum34/blog_api/branch/main/graph/badge.svg)](https://codecov.io/gh/Magnum34/blog_api)
+[![Build Status](https://travis-ci.com/Magnum34/blogs_api.svg?branch=master)](https://travis-ci.com/Magnum34/blogs_api)
+[![codecov](https://codecov.io/gh/Magnum34/blog_api/branch/master/graph/badge.svg)](https://codecov.io/gh/Magnum34/blog_api)
 
 
 ## Requirements
