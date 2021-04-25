@@ -4,6 +4,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Service\PostAPIService;
 
 class PostTest extends TestCase
 {

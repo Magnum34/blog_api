@@ -8,7 +8,6 @@ use App\DTO\Post;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
-use JMS\Serializer\SerializerBuilder;
 
 class PostAPIService implements HandlerInterface
 {
